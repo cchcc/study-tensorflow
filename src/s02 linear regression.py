@@ -12,7 +12,11 @@ b = tf.Variable(tf.random_normal([1]), name='bias')
 # hypothesis = x_train * W + b
 hypothesis = X * W + b
 
-# cost function
+# Cost(Loss) function
+# 가설 함수를 통해 나온 예측한 값과 실데이터간의 선과의 차이(거리)를 측정하는 함수
+# 일반적으로 차이 구한구에 제곱을 한다. -> 양수로 바뀌면서 차이가 클수록 패널티가 커짐
+# 이 cost function 의 값을 작게 만드는것(수식의 W,b 를 정함)이 linear regression 에서의 '학습'을 말함
+
 # cost = tf.reduce_mean(tf.square(hypothesis - y_train))  # reduce_mean 은 텐서의 값들을 평균을 구해줌
 cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
